@@ -1,0 +1,8 @@
+name: Gun
+version: '${project.version}'
+main: com.snat.gun.Guns
+api-version: 1.18
+authors: [ snat ]
+description: test
+commands:
+  get:
