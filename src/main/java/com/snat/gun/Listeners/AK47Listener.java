@@ -35,6 +35,8 @@ public class AK47Listener implements Listener {
         Player player = e.getPlayer();
 
 
+        if (e.hasItem()) {
+
             if (player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(utils.color("&b&lAK-47")) && player.getInventory().getItemInMainHand().getType().equals(Material.DIAMOND_HOE)) {
                 if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
                     Location start = player.getEyeLocation();
@@ -58,7 +60,7 @@ public class AK47Listener implements Listener {
                             FluidCollisionMode.NEVER,
                             true,
                             0.0D,
-                            entity -> !hit.contains(entity) && (entity instanceof Zombie || entity instanceof Player ))) != null
+                            entity -> !hit.contains(entity) && (entity instanceof Zombie || entity instanceof Player))) != null
                             && result.getHitBlock() == null) {
                         Entity entity = result.getHitEntity();
                         hit.add(entity);
@@ -67,6 +69,7 @@ public class AK47Listener implements Listener {
                     }
                 }
             }
+        }
 
 
 

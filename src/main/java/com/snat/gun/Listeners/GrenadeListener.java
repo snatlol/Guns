@@ -26,14 +26,17 @@ public class GrenadeListener implements Listener {
         Player player = e.getPlayer();
         Location playerLoc = e.getPlayer().getEyeLocation();
 
-        if (player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(utils.color("&2&lGrenade")) && player.getInventory().getItemInMainHand().getType().equals(Material.GREEN_WOOL)) {
-            if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
-                FallingBlock grenade = e.getPlayer().getWorld().spawnFallingBlock(playerLoc, Material.GREEN_WOOL, (byte) 0);
-                grenade.setDropItem(false);
-                throwGrenade.add(grenade);
-                grenade.setVelocity(e.getPlayer().getLocation().getDirection().multiply(3));
-                player.getInventory().remove(Material.GREEN_WOOL);
-                e.setCancelled(true);
+        if (e.hasItem()) {
+
+            if (player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(utils.color("&2&lGrenade")) && player.getInventory().getItemInMainHand().getType().equals(Material.GREEN_WOOL)) {
+                if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
+                    FallingBlock grenade = e.getPlayer().getWorld().spawnFallingBlock(playerLoc, Material.GREEN_WOOL, (byte) 0);
+                    grenade.setDropItem(false);
+                    throwGrenade.add(grenade);
+                    grenade.setVelocity(e.getPlayer().getLocation().getDirection().multiply(3));
+                    player.getInventory().remove(Material.GREEN_WOOL);
+                    e.setCancelled(true);
+                }
             }
         }
     }
