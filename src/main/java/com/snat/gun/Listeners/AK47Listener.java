@@ -58,7 +58,7 @@ public class AK47Listener implements Listener {
                             FluidCollisionMode.NEVER,
                             true,
                             0.0D,
-                            entity -> !hit.contains(entity) && (entity instanceof Zombie || entity instanceof Player))) != null
+                            entity -> !hit.contains(entity) && (entity instanceof Zombie || entity instanceof Player ))) != null
                             && result.getHitBlock() == null) {
                         Entity entity = result.getHitEntity();
                         hit.add(entity);

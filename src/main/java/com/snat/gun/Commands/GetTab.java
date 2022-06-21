@@ -15,7 +15,8 @@ public class GetTab implements TabCompleter {
 
         if (args.length == 1 ) {
             results.add("AK47");
-            results.add("Gernade");
+            results.add("Grenade");
+            results.add("Shotgun");
 
         }
 

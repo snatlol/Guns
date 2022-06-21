@@ -2,6 +2,7 @@ package com.snat.gun.Commands;
 
 import com.snat.gun.CustomItems.AK47;
 import com.snat.gun.CustomItems.Grenade;
+import com.snat.gun.CustomItems.Shotgun;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -14,6 +15,7 @@ public class GetCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         AK47 ak47 = new AK47();
         Grenade grenade = new Grenade();
+        Shotgun shotgun = new Shotgun();
 
         if (sender instanceof Player) {
 
@@ -28,6 +30,10 @@ public class GetCommand implements CommandExecutor {
 
                     case "Grenade":
                         grenade.createGrenade(player);
+                        break;
+
+                    case "Shotgun":
+                        shotgun.createShotgun(player);
                         break;
 
                     default:
