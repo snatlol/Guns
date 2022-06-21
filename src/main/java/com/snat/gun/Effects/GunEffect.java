@@ -6,12 +6,12 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
 
-public class AK47Effect {
+public class GunEffect {
 
     private final ArmorStand effect;
     private long expiration;
 
-    public AK47Effect(Entity entity) {
+    public GunEffect(Entity entity) {
         this.effect = (ArmorStand) entity.getWorld().spawnEntity(entity.getLocation(), EntityType.ARMOR_STAND);
         this.effect.setInvisible(true);
         this.effect.setInvulnerable(true);

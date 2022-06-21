@@ -1,6 +1,6 @@
 package com.snat.gun.Listeners;
 
-import com.snat.gun.Effects.AK47EffectTask;
+import com.snat.gun.Effects.GunEffectTask;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Zombie;
@@ -12,9 +12,9 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 public class AK47EffectListener implements Listener {
 
-    private final AK47EffectTask task;
+    private final GunEffectTask task;
 
-    public AK47EffectListener(AK47EffectTask task) {
+    public AK47EffectListener(GunEffectTask task) {
         this.task = task;
     }
 

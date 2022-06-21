@@ -7,42 +7,42 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 
-public class AK47EffectTask extends BukkitRunnable {
+public class GunEffectTask extends BukkitRunnable {
 
-    private final Map<Entity, AK47Effect> ak47Effects = new HashMap<>();
+    private final Map<Entity, GunEffect> gunEffects = new HashMap<>();
 
     public void addEffect(Entity entity) {
-        if (ak47Effects.containsKey(entity)) {
-            ak47Effects.get(entity).renew();
+        if (gunEffects.containsKey(entity)) {
+            gunEffects.get(entity).renew();
             return;
         }
-        ak47Effects.put(entity, new AK47Effect(entity));
+        gunEffects.put(entity, new GunEffect(entity));
     }
 
     public void removeEffect(Entity entity) {
-        AK47Effect effect;
-        if ((effect = ak47Effects.get(entity)) != null) {
+        GunEffect effect;
+        if ((effect = gunEffects.get(entity)) != null) {
             effect.remove();
-            ak47Effects.remove(entity);
+            gunEffects.remove(entity);
         }
     }
 
     public void removeAll() {
-        ak47Effects.values().forEach(ak47Effects::remove);
-        ak47Effects.clear();
+        gunEffects.values().forEach(gunEffects::remove);
+        gunEffects.clear();
     }
 
     @Override
     public void run() {
-        for (Map.Entry<Entity, AK47Effect> entry : new HashSet<>(ak47Effects.entrySet())) {
-            AK47Effect effect = entry.getValue();
+        for (Map.Entry<Entity, GunEffect> entry : new HashSet<>(gunEffects.entrySet())) {
+            GunEffect effect = entry.getValue();
             // the second part of the check is because
             // if the player holds right click, he could hit
             // the entity after the death event was called
             // resulting in a new effect to spawn for 5 seconds
             if (effect.isExpired() || entry.getKey().isDead()) {
                 effect.remove();
-                ak47Effects.remove(entry.getKey());
+                gunEffects.remove(entry.getKey());
             }
         }
     }

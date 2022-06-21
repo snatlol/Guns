@@ -1,6 +1,6 @@
 package com.snat.gun.Listeners;
 
-import com.snat.gun.Effects.AK47EffectTask;
+import com.snat.gun.Effects.GunEffectTask;
 import com.snat.gun.Utils;
 import org.bukkit.*;
 import org.bukkit.entity.Damageable;
@@ -21,9 +21,9 @@ import java.util.Set;
 public class AK47Listener implements Listener {
 
 
-    private final AK47EffectTask task;
+    private final GunEffectTask task;
 
-    public AK47Listener(AK47EffectTask task) {
+    public AK47Listener(GunEffectTask task) {
         this.task = task;
     }
 
